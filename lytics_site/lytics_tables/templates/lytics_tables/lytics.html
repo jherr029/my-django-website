@@ -1,0 +1,40 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'lytics_tables/style.css' %}">
+<link rel="stylesheet" href="{% static 'lytics_tables/skeleton.css' %}">
+<link rel="stylesheet" href="{% static 'lytics_tables/normalize.css' %}">
+
+<body>
+    
+{% if table %}
+    <table class="u-full-width">
+        <thread>
+            <tr>
+                <th>Channel</th>
+                <th>SID</th>
+                <th>Type</th>
+            </tr>
+        </thread>
+        {% for channel in table %}
+        <tbody>
+            <td>{{ channel.name }}</td>
+            <td>{{ channel.sid }}</td>
+            <td>{{ channel.bType }}</td>
+        </tbody>
+        {% endfor %}
+    <!-- <ul>
+        {% for row in table %}
+            <li><a href="{% url 'lytics:data' row.name %}"> {{ row.name }}  </a></li>
+        {% endfor %}
+    </ul> -->
+    </table>
+
+    {% for channel in table %}
+    <a class="button button-primary" href="{% url 'lytics:data' channel.name %}"> {{ channel.name }}</a> 
+    {% endfor %}
+
+
+{% else %}
+    <p>No channels are available</p>
+{% endif %}
+
+</body>

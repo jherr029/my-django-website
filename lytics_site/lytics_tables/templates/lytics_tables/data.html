@@ -1,0 +1,18 @@
+<!-- <h1>{{ data.0.name }}</h1>
+<ul>
+    {% for choice in data %}
+        <li> {{choice.game}} {{ choice.views }} {{ choice.followers }} {{ choice.date }} {{ choice.time }} </li>
+    {% endfor %}
+</ul> -->
+
+<h1>{{ data.0.name }}</h1>
+{% if data %}
+    <ul>
+        {% for row in data %}
+            <li> {{row.game}} {{ row.views }} {{ row.followers }} {{ row.date }} {{ row.time }} </a></li>
+        {% endfor %}
+    </ul>
+    <p>{{ data.name }}</p>
+{% else %}
+    <p>No channels are available</p>
+{% endif %}
