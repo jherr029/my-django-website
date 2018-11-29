@@ -15,9 +15,30 @@ body {
     color: white;
 }
 
+.span {
+    color: black;
+    font-size: 5px;
+    /* padding: 5px 10px 0; */
+    display: block;
+}
+
+.text-center {
+    display: block;
+    text-align: center;
+}
+
+.my-icon {
+    display: block;
+    text-align: center;
+}
+
+.fancy-con {
+    display: inline-block;
+}
+
 .centeredHero {
     position: absolute;
-    /* top: 50%; */
+    top: 25%;
     /* left: 50%; */
 
     -webkit-transform: translate(0%, 50%);
@@ -120,6 +141,38 @@ section {
     background-position: 50% 0;
 }
 
+.navigation .menu-icon {
+    color: white;
+    font-size: 30px;
+    line-height: 1em;
+
+    position: absolute;
+    left: 100%;
+    padding: 20px;
+
+    -webkit-transition: all .15s ease-in-out;
+    -moz-transition:  all .15s ease-in-out;
+    -ms-transition:  all .15s ease-in-out;
+    -o-transition:  all .15s ease-in-out;
+    transition:  all .15s ease-in-out;
+}
+
+.navigation .menu-icon.active {
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.navigation .menu-icon:hover {
+    color: #222;
+    background-color: transparent;
+}
+
+.navigation.active {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+}
 
 .navigation {
     position: fixed;
@@ -140,14 +193,6 @@ section {
     transition: all .5s ease-in-out;
 }
 
-.navigation.active {
-    -webkit-transform: translateX(0);
-    -moz-transform: translateX(0);
-    -ms-transform: translateX(0);
-    -o-transform: translateX(0);
-    transform: translateX(0);
-}
-
 .navigation ul {
     list-style: none;
     position: absolute;
@@ -157,6 +202,7 @@ section {
     right: 0;
     margin: 0;
     background: #222;
+    opacity: .9;
 }
 
 .navigation ul li {
@@ -183,30 +229,6 @@ section {
     background-color: white;
 }
 
-.navigation .menu-icon {
-    color: white;
-    font-size: 30px;
-    line-height: 1em;
-
-    position: absolute;
-    left: 100%;
-    padding: 20px;
-
-    -webkit-transition: all .15s ease-in-out;
-    -moz-transition:  all .15s ease-in-out;
-    -ms-transition:  all .15s ease-in-out;
-    -o-transition:  all .15s ease-in-out;
-    transition:  all .15s ease-in-out;
-}
-
-.navigation .menu-icon.active {
-    background-color: rgba(0, 0, 0, .3);
-}
-
-.navigation .menu-icon:hover {
-    color: #222;
-    background-color: transparent;
-}
 
 .hero {
     padding: 0;
@@ -343,7 +365,26 @@ section {
    
   .work-items li:hover .work-detail{
     opacity: 1;
-    box-shadow: inset 0 0 0 2px #222;
+    box-shadow: inset 0 0 0 2px rgb(187, 179, 179);
+  }
+
+  .twitch {
+      height: auto;
+      width: auto;
+      position: absolute;
+      left: -90px;
+  }
+
+  .calc {
+      position: absolute;
+      left: -100px;
+  }
+
+  .dodge {
+      height: auto;
+      width: auto;
+      position: absolute;
+      left: -100px
   }
 
 
@@ -355,6 +396,12 @@ section {
 
   @media (min-width: 400px) and (max-width: 750px) {
       .work-items li.isotope-item.columns {
+          width: 100%;
+      }
+  }
+
+  @media screen and (max-width: 500px) {
+      .adj {
           width: 100%;
       }
   }

@@ -20,6 +20,7 @@
     <link rel="icon" type="image/png" href="{% static 'lytics_tables/images/favicon.png' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
+
 </head>
 
 <body>
@@ -28,12 +29,12 @@
             <i class="fa fa-bars"></i>
         </a>
         <ul class="main-navigation">
-            <li><a href="#hero"></a>Home</li> <!--hero-->
-            <li><a href="#introduction"></a>Introduction</li> <!--intro-->
-            <li><a href="#interest"></a>Interest</li> <!--creativity-->
-            <li><a href="#projects"></a>Projects</li> <!--work-->
-            <li><a href="#contact"></a>Contact</li> <!--get in touch-->
-            <li><a href="#about"></a>About</li> <!--about us-->
+            <li><a href="#hero">Home</a></li> <!--hero-->
+            <li><a href="#introduction">Introduction</a></li> <!--intro-->
+            <li><a href="#interest">Interest</a></li> <!--creativity-->
+            <li><a href="#projects">Projects</a></li> <!--work-->
+            <li><a href="#contact">Contacts</a></li> <!--get in touch-->
+            <li><a href="#about">About</a></li> <!--about us-->
         </ul>
     </nav>
 
@@ -42,7 +43,7 @@
         <div class="container centeredHero">
             <div class="twelve columns">
                 <h1 class="separator">Jonathan Herrera</h1>
-                <h2>Hi, welcome to my website!</h2>
+                <h2>Software engineer driven by curiosity</h2>
             </div>
         </div>
     </section>
@@ -52,15 +53,27 @@
             <div class="row">
                 <div class="twelve columns">
                     <h3 class="separator">Introduction</h3>
-                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</h4>
+                    <h4>I am a C/C++ and Python developer that is always looking forward to learning new things. 
+                        The following are new technologies that I am really glad to have acquired recently.
+                    </h4>
                 </div>
+                <ul class="u-full-width fa-5x adj">
+                    <a href="https://docker.com">
+                        <i class="fab fa-docker contactIcons my-icon"></i></a>
+                    <a href="https://jenkins.io/">
+                        <i class="fab fa-jenkins contactIcons"></i></a>
+                    <a href="https://github.com/abseil/googletest">
+                        <i class="fab fa-google contactIcons"></i></a>
+                    <a href="https://www.djangoproject.com/">
+                        <i class="fab fa-python contactIcons"></i></a>
+                </ul>
             </div>
         </div>
     </section>
     
     <section id="interest" class="interest u-full-width featured-bg-image">
         <h4 class="centered">
-            <button class="button inverted">Pure creativity</button>
+            <button class="button inverted">Check out my projects</button>
         </h4>
     </section>
 
@@ -68,85 +81,95 @@
         <div class="container">
             <div class="row">
                 <div class="twelve columns">
-                    <h3 class="separator">Some of my projects</h3>
+                    <h3 class="separator">Projects</h3>
                 </div>
             </div>
             <div class="row">
                 <ul class="work-filters u-full-width">
                     <li class="active">
-                        <a href="#">All</a>
+                        <a href="https://github.com/jherr029/twitch-clips-analytics">Lytics</a>
                     </li>
                     <li>
-                        <a href="#">Branding</a>
+                        <a href="{% url 'lytics:lytics' %}">Lytics Alpha</a>
                     </li>
                     <li>
-                        <a href="#">Web</a>
+                        <a href="https://github.com/jherr029/Graphing-Calculator">Calculator</a>
                     </li>
                     <li>
-                        <a href="#">Mobile</a>
+                        <a href="https://www.youtube.com/watch?v=TZeS5Vxri7U">Dodger</a>
                     </li>
                     <li>
-                        <a href="#">UI</a>
+                        <a href="https://github.com/jherr029/pattern-check">Patterns</a>
                     </li>
                     <li>
-                        <a href="#">Code</a>
+                        <a href="#">Shuttle</a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/watch?v=lAhPIHusmWA">Synth</a>
                     </li>
                 </ul>
             </div>
             <div class="row">
-                <ul class="work-items">
-                    <li class="four columns">
-                        <img src="http://placehold.it/400">
+                <ul class="work-items isotope">
+                    <li class="four columns isotope-item">
+                        <img src="https://www.twitch.tv/p/assets/uploads/combologo_474x356.png" class="twitch">
                         <div class="work-detail">
                             <div class="vertical-centered">
-                                <h3>Branding</h3>
-                                <p class="separator orange">MTV AMA logo</p>
-                                <!-- <p>test</p> -->
+                                <h3>Lytics</h3>
+                                <p class="separator orange">Twitch Clips Analysis</p>
+                                <p>C++ and Mysql</p>
+                                <p>In Alpha Stage</p>
                             </div>
                         </div>
                     </li>
-                    <li class="four columns">
-                        <img src="http://placehold.it/400">
+                    <li class="four columns isotope-item">
+                        <img src="https://images.unsplash.com/photo-1511377107391-116a9d5d20b5?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c36af8fdc0ecb730540a3d1b9fef34f1&auto=format&fit=crop&w=2250&q=80" class="calc">
                         <div class="work-detail">
                             <div class="vertical-centered">
-                                <h3>Web</h3>
-                                <p class="separator orange">Dribble redesign</p>
+                                <h3>Android Graphing Calculator</h3>
+                                <p class="separator orange">Based on Desmos Calculator</p>
+                                <p>Java and Firebase</p>
                             </div>
                         </div>
                     </li>
-                    <li class="four columns">
-                        <img src="http://placehold.it/400">
+                    <li class="four columns isotope-item">
+                        <img src="{% static 'lytics_tables/images/work/dodge.png' %}" class="dodge">
                         <div class="work-detail">
                             <div class="vertical-centered">
-                                <h3>Mobile</h3>
-                                <p class="separator orange">Google Mail</p>
+                                <h3>Dodging Game</h3>
+                                <p class="separator orange">Embedded System</p>
+                                <p>C</p>
                             </div>
                         </div>
                     </li>
-                    <li class="four columns">
-                        <img src="http://placehold.it/400">
+                    <li class="four columns isotope-item">
+                        <img src="https://images.unsplash.com/reserve/uZYSV4nuQeyq64azfVIn_15130980706_64134efc6e_o.jpg?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e13dac6ddcf9a4071422202015ae94a9&auto=format&fit=crop&w=2247&q=80" class="pattern">
                         <div class="work-detail">
                             <div class="vertical-centered">
-                                <h3>UI</h3>
-                                <p class="separator orange">Flat Icons</p>
+                                <h3>Pattern Finder</h3>
+                                <p class="separator orange">Parses a file to find valid patterns</p>
+                                <p>C++</p>
                             </div>
                         </div>
                     </li>
-                    <li class="four columns">
-                        <img src="http://placehold.it/400">
+                    <li class="four columns isotope-item">
+                        <img src="https://images.unsplash.com/photo-1535655685871-dc8158ff167e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=56f088e356da62acb6c8f0580fd106df&auto=format&fit=crop&w=1300&q=80" class="shuttle">
                         <div class="work-detail">
                             <div class="vertical-centered">
-                                <h3>Code</h3>
-                                <p class="separator orange">C++</p>
+                                <h3>UCR Shuttle</h3>
+                                <p class="separator orange">An Uber inspired webapp</p>
+                                <p>C++, MySQL, and Django)</p>
+                                <p>On Hold</p>
                             </div>
                         </div>
                     </li>
-                    <li class="four columns">
-                        <img src="http://placehold.it/400">
+                    <li class="four columns isotope-item">
+                        <img src="{% static 'lytics_tables/images/work/synth.jpg' %}">
                         <div class="work-detail">
                             <div class="vertical-centered">
-                                <h3>UI</h3>
-                                <p class="separator orange">Skeleton</p>
+                                <h3>Synthesizer</h3>
+                                <p class="separator orange">Embedded System synthesizer</p>
+                                <p>C, Atmega1284, Adruino Uno, and Raspberry Pi</p>
                             </div>
                         </div>
                     </li>
@@ -162,19 +185,15 @@
                     <h3 class="separator">Get in touch</h3>
                 </div>
             </div>
-            <ul class="u-full-width fa-7x">
-                <a href="#">
+            <ul class="u-full-width fa-6x">
+                <a href="https://github.com/jherr029">
                     <i class="fab fa-github contactIcons"></i></a>
-                <a href="#">
+                <a href="https://www.linkedin.com/in/jonathan-herrera-52b22613b/">
                     <i class="fab fa-linkedin contactIcons"></i></a>
-                <a href="#">
+                <a href="mailto: jherreraj135@gmail.com">
                     <i class="fas fa-envelope contactIcons"></i></a>
                 <a href="#">
                     <i class="fas fa-file-alt contactIcons"></i></a>
-                <!-- <button class="button">Github</button>
-                <button class="button">LinkedIn</button>
-                <button class="button">Email</button>
-                <button class="button">Resume</button> -->
             </ul>
             </div>
         </div>
@@ -185,7 +204,10 @@
             <div class="row">
                 <div class="twelve columns">
                     <h3 class="separator">About me</h3>
-                    <h4>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h4>
+                    <h4>I graduated from University of California - Riverside with a BS in Computer Science in 2018.
+                    I became who I am today due to my fascination with robots as a child. I enjoying reading, snowboarding
+                    and making sure my dog is not making a mess.
+                    </h4>
                 </div>
             </div>
             <!-- <div class="row">
@@ -205,6 +227,15 @@
             </div>
         </div>
     </section>
+
+        <!-- Javascript
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="{% static 'lytics_tables/js/jquery.singlePageNav.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'lytics_tables/js/scripts.js' %}"></script>
 
 </body>
 </html>
