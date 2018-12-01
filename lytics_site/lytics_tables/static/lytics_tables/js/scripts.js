@@ -82,4 +82,5 @@ $(document).ready(function(){
     sr.reveal('.projects')
     sr.reveal('.contact')
     sr.reveal('.about')
-})
+
+});

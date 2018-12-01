@@ -1,0 +1,40 @@
+{% extends "lytics_tables/base.html" %}
+
+{% block title %} Slugs {% endblock %}
+
+
+{% if data %}
+{% block content %}
+<section id="table">
+    <div class="container">
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Views</th>
+                    <th scope="col">Date Created</th>
+                    <th scope="col">Time Created</th>
+                    <th scope="col">Updated at</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for slug in data %}
+                <tr>
+                    <td>{{ slug.name }}</td>
+                    <td>{{ slug.title }}</td>
+                    <td>{{ slug.views }}</td>
+                    <td>{{ slug.date_created }}</td>
+                    <td>{{ slug.time_created }}</td>
+                    <td>{{ slug.timestamp_updated }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}
+
+{% else %}
+<p>No slugs are available</p>
+{% endif %}

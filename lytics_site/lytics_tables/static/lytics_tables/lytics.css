@@ -1,0 +1,41 @@
+
+html {
+    height: 100;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+
+body {
+    position: relative;
+
+}
+
+.wrapper {
+    /* min-height: 100%; */
+    position: relative;
+}
+
+.navbar {
+    margin-bottom: 5%;
+}
+
+.classFooter {
+    background-color: #343a40;
+    color: white;
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.table {
+    margin-bottom: 10%;
+}
