@@ -33,7 +33,7 @@
             </thead>
             <tbody>
             {% for channel in table %}
-                <tr class="clickable-row" data-href="{% url 'lytics:data' channel.name %}">
+                <tr class="clickable-row" data-href="{% url 'lytics:channel' channel.name %}">
                     <td>{{ channel.name }}</td>
                     <td>{{ channel.sid }}</td>
                     <td>{{ channel.bType }}</td>
@@ -45,21 +45,29 @@
 </section>
 
 <div class="container">
-    <form>
-        <div class="form-group">
-            <label for="channel">Channel</label>
-            <input type="name" class="form-control" id="channel" aria-describedby="channelHelp" placeholder="Enter channel name">
+    <form method="GET">
+        <!-- {% csrf_token %} -->
+        <div class="form-group col-3">
+            <label for="the_channel">Channel</label>
+            <input type="text" class="form-control" name ="the_channel" id="the_channel" aria-describedby="channelHelp" placeholder="Enter channel name">
             <small id="channelHelp" class="form-text text-muted">Its safe!</small>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 
-<!-- <form action="/your-name/" method="post">
-    <label for="your_name">Your name: </label>
-    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
-    <input type="submit" value="OK">
-</form> -->
+
+<!-- Old form using django form template -->
+<!-- <div class="container">
+    <form method="GET" >
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div> -->
+
+
+
 
 {% endblock %}
 

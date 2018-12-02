@@ -75,6 +75,7 @@ $(document).ready(function(){
     // ScrollReveal().reveal('.projects')
     // ScrollReveal().reveal('.contact')
     // ScrollReveal().reveal('.about')
+    // $('footer').footerReveal({ shadow: false, zIndex: -101 });
 
     window.sr = ScrollReveal( config );
     sr.reveal('.introduction')
@@ -82,5 +83,6 @@ $(document).ready(function(){
     sr.reveal('.projects')
     sr.reveal('.contact')
     sr.reveal('.about')
+
 
 });

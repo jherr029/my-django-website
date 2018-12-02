@@ -2,8 +2,9 @@
 
 {% block title %} Channel {% endblock %}
 
-{% if data %}
+
 {% block content %}
+{% if channel %}
 <section id="table">
     <div class="container">
         <table class="table table-striped table-hover">
@@ -18,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-            {% for streamer in data %}
+            {% for streamer in channel %}
                 <tr>
                     <td>{{ streamer.name }}</td>
                     <td>{{ streamer.game }}</td>
@@ -33,8 +34,12 @@
     </div>
 </section>
 
-{% endblock %}
-
 {% else %}
-<p>No data is available</p>
+<div class="container">
+    <div class="alert alert-danger" role="alert">
+        The channel {{ unfound_channel }} is not within the database
+    </div>
+</div>
 {% endif %}
+
+{% endblock %}

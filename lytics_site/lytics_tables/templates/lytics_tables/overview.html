@@ -1,0 +1,71 @@
+{% extends "lytics_tables/base.html" %}
+
+{% block title %} Channel Overview {% endblock %}
+
+{% block content %}
+{% if general and clips %}
+
+<section class="tables">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Game</th>
+                            <th scope="col">Views</th>
+                            <th scope="col">Followers</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for streamer in general %}
+                        <tr>
+                            <td>{{ streamer.game }}</td>
+                            <td>{{ streamer.views }}</td>
+                            <td>{{ streamer.followers }}</td>
+                            <td>{{ streamer.date }}</td>
+                            <td>{{ streamer.time }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+                <table class="table table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Views</th>
+                            <th scope="col">Date Created</th>
+                            <th scope="col">Time Created</th>
+                            <th scope="col">Updated at</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for clip in clips %}
+                        <tr>
+                            <td>{{ clip.title }}</td>
+                            <td>{{ clip.views }}</td>
+                            <td>{{ clip.date_created }}</td>
+                            <td>{{ clip.time_created }}</td>
+                            <td>{{ clip.timestamp_updated }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% else %}
+<div class="container">
+    <div class="alert alert-danger" role="alert">
+        The channel {{ unfound_channel }} is not within the database
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
