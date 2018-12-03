@@ -1,0 +1,197 @@
+{% extends "lytics_tables/base.html" %}
+
+{% block title %} Custom Query {% endblock %}
+
+{% block content %}
+
+{% if userQuery %}
+<div class="container">
+    <div class="alert alert-primary" role="alert">
+        Showing results for the query: <strong> {{ userQuery }} </strong>
+    </div>
+</div>
+{% endif %}
+
+{% if customQueryGeneral %}
+<section id="table">
+    <div class="container">
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    {% if 'channel' in customQueryGeneral.0 %}
+                    <th scope="col">Channel</th>
+                    {% endif %}
+
+                    {% if 'sid' in customQueryGeneral.0 %}
+                    <th scope="col">SID</th>
+                    {% endif %}
+
+                    {% if 'bType' in customQueryGeneral.0 %}
+                    <th scope="col">Type</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for channel in customQueryGeneral %}
+                <tr>
+                    {% if 'channel' in customQueryGeneral.0 %}
+                    <td>{{ channel.name }}</td>
+                    {% endif %}
+
+                    {% if 'sid' in customQueryGeneral.0 %}
+                    <td>{{ channel.sid }}</td>
+                    {% endif %}
+
+                    {% if 'bType' in customQueryGeneral.0 %}
+                    <td>{{ channel.bType }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+{% elif customQueryData %}
+<section id="table">
+    <div class="container">
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    {% if 'name' in customQueryData.0 %}
+                    <th scope="col">Name</th>
+                    {% endif %}
+
+                    {% if 'game' in customQueryData.0 %}
+                    <th scope="col">Game</th>
+                    {% endif %}
+
+                    {% if 'views' in customQueryData.0 %}
+                    <th scope="col">Views</th>
+                    {% endif %}
+
+                    {% if 'followers' in customQueryData.0 %}
+                    <th scope="col">Followers</th>
+                    {% endif %}
+
+                    {% if 'date' in customQueryData.0 %}
+                    <th scope="col">Date</th>
+                    {% endif %}
+
+                    {% if 'time' in customQueryData.0 %}
+                    <th scope="col">Time</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for channel in customQueryData %}
+                <tr>
+                    {% if 'name' in customQueryData.0 %}
+                    <td>{{ channel.name }}</td>
+                    {% endif %}
+
+                    {% if 'game' in customQueryData.0 %}
+                    <td>{{ channel.game }}</td>
+                    {% endif %}
+
+                    {% if 'views' in customQueryData.0 %}
+                    <td>{{ channel.views }}</td>
+                    {% endif %}
+
+                    {% if 'followers' in customQueryData.0 %}
+                    <td>{{ channel.followers }}</td>
+                    {% endif %}
+
+                    {% if 'date' in customQueryData.0 %}
+                    <td>{{ channel.data }}</td>
+                    {% endif %}
+
+                    {% if 'time' in customQueryData.0 %}
+                    <td>{{ channel.time }}</td>
+                    {% endif %}
+
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+</section>
+
+{% elif customQueryClips %}
+<section id="table">
+    <div class="container">
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    {% if 'name' in customQueryClips.0 %}
+                    <th scope="col">Name</th>
+                    {% endif %}
+
+                    {% if 'game' in customQueryClips.0 %}
+                    <th scope="col">Title</th>
+                    {% endif %}
+
+                    {% if 'views' in customQueryClips.0 %}
+                    <th scope="col">Views</th>
+                    {% endif %}
+
+                    {% if 'date_created' in customQueryClips.0 %}
+                    <th scope="col">Date Created</th>
+                    {% endif %}
+
+                    {% if 'time_created' in customQueryClips.0 %}
+                    <th scope="col">Time Created</th>
+                    {% endif %}
+
+                    {% if 'timestamp_updated' in customQueryClips.0 %}
+                    <th scope="col">Updated at</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for channel in customQueryClips %}
+                <tr>
+                    {% if 'name' in customQueryClips.0 %}
+                    <td>{{ channel.name }}</td>
+                    {% endif %}
+
+                    {% if 'game' in customQueryClips.0 %}
+                    <td>{{ channel.game }}</td>
+                    {% endif %}
+
+                    {% if 'views' in customQueryClips.0 %}
+                    <td>{{ channel.views }}</td>
+                    {% endif %}
+
+                    {% if 'date_created' in customQueryClips.0 %}
+                    <td>{{ channel.date_created }}</td>
+                    {% endif %}
+
+                    {% if 'time_created' in customQueryClips.0 %}
+                    <td>{{ channel.time_created }}</td>
+                    {% endif %}
+
+                    {% if 'timestamp_updated' in customQueryClips.0 %}
+                    <td>{{ channel.timestamp_updated }}</td>
+                    {% endif %}
+
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+</section>
+
+{% else %}
+<div class="container">
+    <div class="alert alert-danger" role="alert">
+        The custom query used is either invalid or data is not retrieveable at the moment.
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
