@@ -7,21 +7,6 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
-class ChannelData(models.Model):
-    name = models.ForeignKey('Channels', models.DO_NOTHING, db_column='name')
-    game = models.CharField(max_length=40)
-    views = models.BigIntegerField()
-    followers = models.BigIntegerField()
-    date = models.DateField()
-    time = models.TimeField()
-
-    class Meta:
-        managed = False
-        db_table = 'channel_data'
-
-    def __str__(self):
-        output2 = str(self.views) + " " + self.game + " " + str(self.views)
-        return output2
 
 class Channels(models.Model):
     name = models.CharField(primary_key=True, max_length=25)
@@ -36,13 +21,29 @@ class Channels(models.Model):
         output = self.name
         return output
 
+class ChannelData(models.Model):
+    name = models.ForeignKey('Channels', models.DO_NOTHING, db_column='name')
+    game = models.CharField(max_length=40)
+    views = models.BigIntegerField()
+    followers = models.BigIntegerField()
+    datetimeupdated = models.DateTimeField(db_column='dateTimeUpdated')  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'channel_data'
+
+    def __str__(self):
+        output2 = str(self.views) + " " + self.game + " " + str(self.views)
+        return output2
+
 class SlugsData(models.Model):
     name = models.ForeignKey(Channels, models.DO_NOTHING, db_column='name')
     title = models.CharField(max_length=100)
+    clip = models.CharField(max_length=50)
     views = models.BigIntegerField()
-    date_created = models.DateField()
-    time_created = models.TimeField()
-    timestamp_updated = models.DateTimeField()
+    datetimecreated = models.DateTimeField(db_column='dateTimeCreated')  # Field name made lowercase.
+    timestamp_updated = models.DateTimeField(blank=True, null=True)
+
 
     class Meta:
         managed = False
@@ -50,3 +51,6 @@ class SlugsData(models.Model):
     
     def __str__(self):
         return self.name
+
+# Take note that django handles camelcase fields to lower case
+# while raw queries are case sensitive

@@ -103,17 +103,11 @@ def customQuery(request, query, source):
         cursor.execute(query)
         queryResult = dictfetchall(cursor)
 
-        print(queryResult)
+        # print(queryResult)
     # queryResult = Channels.objects.raw(query)
     # print(queryResult)
 # 
     # print(queryResult[0][0])
-
-    if "sid" in queryResult[0]:
-        print('sid exist')
-        print(queryResult[0]['sid'])
-    else:
-        print('sid does not exist')
 
     context = {
         source : queryResult,
