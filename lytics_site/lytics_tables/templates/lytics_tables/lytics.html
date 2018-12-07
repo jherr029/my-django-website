@@ -4,14 +4,36 @@
 {% block title %}Lytics-Alpha{% endblock %}
 
 {% block content %}
-{% if table %}
 <section id="introduction">
+       <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1>Welcome to lytics - a twitch clips case study</h1>
+                <p class="lead">
+                    Twitch is a livestreaming platform for content creators to broadcast showcase their content while as being able to actively communicate with their fanbase.
+                    Twitch has a feature in which viewers can clip segments of the live broadcast that allow other people too see content even though they were not watching it as it occured live.
+                    As a result, clips are a greatway for a streamer to gain exposure outside of their fanbase, which in turn may increase their fanbase. 
+                </p>
+                <p class="lead">
+                    The best place to gain exposure outside of Twitch, is through the subreddit livestreamfail, which is dedicated to Twitch clips.
+                    The reason behind this is becaues the vast majority of Twitch's viewerbase only watch the popular streamers rather than an unrecognized streamer.
+                    When a streamer has a large fanbase that is actively watching their stream, they gain much more exposure than a streamer who only has less than 10 viewers.
+                    Livestreamfail as a result, is the best place to gain massive exposure for their content.
+                </p>
+                <hr class="my-4">
+                <p>Features for better user experience are in the development pipeline and I am currently exploring various methods to gain the most accurate results to the case study.</p>
+            </div>
+       </div> 
+</section>
+
+
+{% if table %}
+<section id="jumboInfo">
     <div class="container">
         <div class="jumbotron">
             <h1>Lytics</h1>
             <p class="lead">Lytics aims to determine if Twitch clips that go viral on lifestreamfail help promote the brand of the streamer</p>
             <hr class="my-4">
-            <p>The algorithm used to determine if a channel is gaining viewers from the viral clip is through statistical analysis</p>
+            <p>The current algorithm that is being used to determine if the clips increase their viewbase is through statistical analysis </p>
             <div class="text-center">
                 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#table" aria-expanded="false" aria-controls="table">
                     Show Channels
@@ -33,7 +55,7 @@
             </thead>
             <tbody>
             {% for channel in table %}
-                <tr class="clickable-row" data-href="{% url 'lytics:channel' channel.name %}">
+                <tr class="clickable-row" data-href="{% url 'lytics:overview' channel.name %}">
                     <td>{{ channel.name }}</td>
                     <td>{{ channel.sid }}</td>
                     <td>{{ channel.bType }}</td>
@@ -47,26 +69,25 @@
 <div class="container">
     <form method="GET">
         <!-- {% csrf_token %} -->
-        <div class="form-group col-3">
+        <div class="form-group col-5">
             <label for="the_channel">Channel</label>
-            <input type="text" class="form-control" name ="the_channel" id="the_channel" aria-describedby="channelHelp" placeholder="Enter channel name">
+            <input type="text" class="form-control" name ="the_channel" id="the_channel" aria-describedby="channelHelp" placeholder="Enter channel name to get an overview">
             <small id="channelHelp" class="form-text text-muted">Its safe!</small>
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
 </div>
 
-<div class="container">
-    <form method="GET">
-        <!-- {% csrf_token %} -->
+<!-- <div class="container">
+    <form method="get">
         <div class="form-group col-8">
-            <label for="custom_query">Enter a custom query</label>
-            <input type="text" class="form-control" name ="custom_query" id="custom_query" aria-describedby="queryHelp" placeholder="Enter a custom query">
-            <small id="queryHelp" class="form-text text-muted">Its safe!</small>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <label for="custom_query">enter a custom query</label>
+            <input type="text" class="form-control" name ="custom_query" id="custom_query" aria-describedby="queryhelp" placeholder="enter a custom query">
+            <small id="queryhelp" class="form-text text-muted">its safe!</small>
+            <button type="submit" class="btn btn-primary">submit</button>
         </div>
     </form>
-</div>
+</div> -->
 
 <!-- Old form using django form template -->
 <!-- <div class="container">

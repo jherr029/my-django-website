@@ -29,27 +29,27 @@ def lytics(request):
 
                 return HttpResponseRedirect(reverse('lytics:overview', args=(chan,)))
         
-        elif 'custom_query' in request.GET:
-            print('custom_query')
-            queryForm = CustomQueryForm(request.GET)
+        # elif 'custom_query' in request.GET:
+        #     print('custom_query')
+        #     queryForm = CustomQueryForm(request.GET)
 
-            if queryForm.is_valid():
-                print('Form is valid')
-                query = queryForm.cleaned_data['custom_query']
+        #     if queryForm.is_valid():
+        #         print('Form is valid')
+        #         query = queryForm.cleaned_data['custom_query']
 
-                return HttpResponseRedirect(reverse('lytics:customQuery', args=('customQueryGeneral', query)))
+        #         return HttpResponseRedirect(reverse('lytics:customQuery', args=('customQueryGeneral', query)))
 
         else:
             print('Invalid form')
     
 
     channelForm = ChannelForm()
-    queryForm = CustomQueryForm()
+    # queryForm = CustomQueryForm()
 
     table = Channels.objects.all()
     context = {'table': table,
         'channelForm': channelForm,
-        'queryForm': queryForm,
+        # 'queryForm': queryForm,
     }
 
     return render(request, 'lytics_tables/lytics.html', context)
@@ -137,18 +137,18 @@ def customQuery(request, query, source):
 
 
 def channelData_overview(request):
-    if request.method == 'GET':
-        print('GET occured')
+    # if request.method == 'GET':
+    #     print('GET occured')
 
-        if 'custom_query' in request.GET:
-            print('custom_query')
-            queryForm = CustomQueryForm(request.GET)
+    #     if 'custom_query' in request.GET:
+    #         print('custom_query')
+    #         queryForm = CustomQueryForm(request.GET)
 
-            if queryForm.is_valid():
-                print('Form is valid')
-                query = queryForm.cleaned_data['custom_query']
+    #         if queryForm.is_valid():
+    #             print('Form is valid')
+    #             query = queryForm.cleaned_data['custom_query']
 
-                return HttpResponseRedirect(reverse('lytics:customQuery', args=('customQueryData', query)))
+    #             return HttpResponseRedirect(reverse('lytics:customQuery', args=('customQueryData', query)))
 
     data = ChannelData.objects.select_related('name')
     context = {'channel': data}
@@ -156,18 +156,18 @@ def channelData_overview(request):
     return render(request,'lytics_tables/data.html', context)
 
 def channelSlugs_overview(request):
-    if request.method == 'GET':
-        print('GET occured')
+    # if request.method == 'GET':
+    #     print('GET occured')
 
-        if 'custom_query' in request.GET:
-            print('custom_query')
-            queryForm = CustomQueryForm(request.GET)
+    #     if 'custom_query' in request.GET:
+    #         print('custom_query')
+    #         queryForm = CustomQueryForm(request.GET)
 
-            if queryForm.is_valid():
-                print('Form is valid')
-                query = queryForm.cleaned_data['custom_query']
+    #         if queryForm.is_valid():
+    #             print('Form is valid')
+    #             query = queryForm.cleaned_data['custom_query']
 
-                return HttpResponseRedirect(reverse('lytics:customQuery', args=('customQueryClips', query)))
+    #             return HttpResponseRedirect(reverse('lytics:customQuery', args=('customQueryClips', query)))
 
     data = SlugsData.objects.select_related('name')
     context = {'channel': data}
