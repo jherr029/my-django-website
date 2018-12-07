@@ -25,9 +25,9 @@
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Title</th>
+                    <th scope="col">Clip</th>
                     <th scope="col">Views</th>
-                    <th scope="col">Date Created</th>
-                    <th scope="col">Time Created</th>
+                    <th scope="col">Date & Time Created</th>
                     <th scope="col">Updated at</th>
                 </tr>
             </thead>
@@ -36,9 +36,9 @@
                 <tr>
                     <td>{{ slug.name }}</td>
                     <td>{{ slug.title }}</td>
+                    <td>{{ slug.clip }}</td>
                     <td>{{ slug.views }}</td>
-                    <td>{{ slug.date_created }}</td>
-                    <td>{{ slug.time_created }}</td>
+                    <td>{{ slug.datetimecreated }}</td>
                     <td>{{ slug.timestamp_updated }}</td>
                 </tr>
             {% endfor %}
