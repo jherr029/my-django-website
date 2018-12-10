@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['DJANGO_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['0.0.0.0', '172.22.0.2', '127.0.0.1',]
+ALLOWED_HOSTS = ['0.0.0.0', '172.22.0.2', '127.0.0.1', '.jerrerah.com',]
 
 
 # Application definition
@@ -124,6 +124,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+STATIC_ROOT = '/home/cero/twitch-clips-analytics/python/lytics_site/static/'
 STATIC_URL = '/static/'
 
 INTERNAL_IPS = ['172.22.0.2', '127.17.0.1', '172.22.0.1']
@@ -136,3 +137,10 @@ if DEBUG:
     INSTALLED_APPS += (
         'debug_toolbar',
     )
+
+X_FRAME_OPTIONS = 'DENY'
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SESSION_COOKIE_SECURE = True
+SECURE_BROWSER_XSS_FILTER = True
+CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
