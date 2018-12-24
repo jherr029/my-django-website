@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+    <meta content="text/html">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'lytics_tables/lytics.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'lytics:index' %}">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'lytics:shuttle' %}">Shuttle</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <section id="introduction">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1>Shuttle app</h1>
+                <p clas="lead">
+                    This app aims to solves the classical traveling salesmans problem. UCR provides a program in which they shuttle students
+                    to their requested destinations. The shuttle driver has to create a route based on all the requests provided by the students which
+                    may lead to a nonoptimal route. The following is a small demo of the traveling salesman problem.
+                </p>
+                <hr class="my-4">
+                <p>
+                    Features in the development pipeline:
+                </p>
+                <div class="contianer">
+                    <ul class="list-group">
+                        <li class="list-group-item">User groups (admin, shuttle driver, students)</li>
+                        <li class="list-group-item">Database</li>
+                        <li class="list-group-item">Analytics</li>
+                        <li class="list-group-item">Heatmap</li>
+                        <li class="list-group-item">Map Integration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <form class="form-horizontal" method="POST" action="">
+            {% csrf_token %}
+            {{ formset.management_form }}
+            {% for form in formset %}
+            <div class="row form-row spacer">
+                <div class="col-2">
+                    <label>{{form.name.label}}</label>
+                </div>
+                <div class="col-4">
+                    <div class="input-group">
+                        {{form.name}}
+                        <div class="input-group-append">
+                            <button class="btn btn-success add-form-row">
+                                <i class="fas fa-plus fa-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="row spacer">
+                <div class="col-4 offset-2 marginBot">
+                    <button type="submit" class="btn submitBtn btn-block btn-primary" id="load" data-loading-text="<i class=fa fa-circle-o-notch fa-spin'></i>Calculating Route">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="{% static 'lytics_tables/js/footer-reveal.min.js' %}"></script> -->
+    <script type="text/javascript" src="{% static 'lytics_tables/js/shuttle.js' %}"></script>
+</body>    
+
+</html>

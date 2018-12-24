@@ -6,7 +6,8 @@ from django.db import connection
 from collections import namedtuple
 
 from .models import Channels, ChannelData, SlugsData
-from .forms import ChannelForm, CustomQueryForm
+from .forms import ChannelForm, CustomQueryForm, AddressFormset
+import subprocess
 
 
 # TODO:j include ddt on docker image
@@ -181,3 +182,92 @@ def dictfetchall(cursor):
         dict(zip(columns, row))
         for row in cursor.fetchall()
     ]
+
+def shuttle(request):
+    addrList = []
+    if request.method == 'GET':
+        formset = AddressFormset(request.GET or None)
+    elif request.method == 'POST':
+        formset = AddressFormset(request.POST)
+
+        if formset.is_valid():
+
+            tempFile = open("testFile.txt", "w")
+            print(len(formset))
+            print('printting: ',formset[0].cleaned_data.get('name'))
+
+            if len(formset) == 1 and formset[0].cleaned_data.get('name') is None:
+                context = {
+                    'emptyInput': True,
+                }
+
+                return render(request, 'lytics_tables/shuttleError.html', context)
+
+            for form in formset:
+                # extract name from each form and save
+                name = form.cleaned_data.get('name')
+                # print(name)
+                if name is not None:
+                    tempFile.write(name + "\n")
+                    addrList.append(name)
+                    
+            print(addrList)
+
+            tempFile.close()
+            # subprocess.call(["../../Shuttle/bin/shuttle", "read" ,"&"])
+            resultsFile = open("results.txt", "r")
+
+            fileLines = resultsFile.readlines()
+            pathHistory = []
+
+            if fileLines[0] == 'error\n':
+               errorAt = fileLines[1] 
+               resultsFile.close()
+
+               print(addrList[int(errorAt) - 1])
+
+               context = {
+                   'errorAt': addrList[int(errorAt) - 1],
+               }
+
+               return render(request, 'lytics_tables/shuttleError.html', context)
+
+            else:
+                maxAddresses = int(fileLines[0])
+
+                for x in range(1, maxAddresses):
+                    pathHistory.append(fileLines[x].replace("+", " "))
+
+                duration = fileLines[maxAddresses + 1]
+                miles = fileLines[maxAddresses + 2]
+
+                print(pathHistory)
+                print(duration)
+                print(miles)
+
+                resultsFile.close()
+
+                context = {
+                    'addresses': addrList,
+                    'pathHistory': pathHistory,
+                    'duration': duration,
+                    'miles': miles,
+                }
+
+                return render(request, 'lytics_tables/shuttleResults.html', context)
+
+    context = {
+        'formset': formset,
+    }
+
+    # print(formset)
+
+    return render(request, 'lytics_tables/shuttle.html', context)
+
+def shuttleDemoResults(request, context):
+    print('Hi')
+
+    print(context['addresses'])
+
+
+    return render(request, 'lytics_tables/shuttleResult.html', context)

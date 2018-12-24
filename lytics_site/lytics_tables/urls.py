@@ -12,4 +12,7 @@ urlpatterns = [
     path('lytics/custom_query/<str:source>/<str:query>/', views.customQuery, name='customQuery'),
     path('lytics/all_channels/', views.channelData_overview, name='channels_overview'),
     path('lytics/all_clips/', views.channelSlugs_overview, name='clips_overview'),
+    path('shuttle/', views.shuttle, name='shuttle'),
+    path('shuttle/demo/', views.shuttleDemoResults, name='shuttle_demo'),
+
 ]
