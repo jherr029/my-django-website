@@ -21,9 +21,9 @@ body {
     position: relative;
 }
 
-.navbar {
-    /* margin-bottom: 5%; */
-}
+/* .navbar {
+    margin-bottom: 5%;
+} */
 
 .classFooter {
     background-color: #343a40;
@@ -38,4 +38,31 @@ body {
 
 .table {
     margin-bottom: 10%;
+}
+
+.list-group {
+    display:inline-block
+}
+
+.input-group {
+    margin-bottom: 10%;
+}
+
+.marginTop {
+    margin-top: 5%;
+}
+
+.marginBot {
+    margin-bottom: 10%;
+}
+
+.errorMargin {
+    margin-top: 20%;
+    margin-bottom: 5%;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
 }
