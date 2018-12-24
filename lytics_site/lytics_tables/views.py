@@ -214,7 +214,7 @@ def shuttle(request):
             print(addrList)
 
             tempFile.close()
-            # subprocess.call(["../../Shuttle/bin/shuttle", "read" ,"&"])
+            subprocess.call(["../../Shuttle/bin/shuttle", "read" ,"&"])
             resultsFile = open("results.txt", "r")
 
             fileLines = resultsFile.readlines()
