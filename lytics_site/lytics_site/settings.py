@@ -25,7 +25,7 @@ SECRET_KEY = os.environ['DJANGO_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['0.0.0.0', '172.22.0.2', '127.0.0.1', '172.17.0.2', '.jerrerah.com',]
+ALLOWED_HOSTS = ['0.0.0.0', '172.22.0.2', '127.0.0.1', '172.17.0.2', '.jerrerah.com', '138.68.58.111',]
 
 
 # Application definition
@@ -124,10 +124,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_ROOT = '/home/cero/twitch-clips-analytics/python/lytics_site/static/'
+STATIC_ROOT = '/home/cero/my-django-website/lytics_site/static/'
 STATIC_URL = '/static/'
 
-INTERNAL_IPS = ['172.22.0.2', '127.17.0.1', '172.22.0.1']
+INTERNAL_IPS = ['172.22.0.2', '127.17.0.1', '172.22.0.1', '138.68.58.111']
 
 if DEBUG:
     MIDDLEWARE += (
@@ -138,9 +138,9 @@ if DEBUG:
         'debug_toolbar',
     )
 
-X_FRAME_OPTIONS = 'DENY'
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SESSION_COOKIE_SECURE = True
-SECURE_BROWSER_XSS_FILTER = True
-CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
+#X_FRAME_OPTIONS = 'DENY'
+#SECURE_CONTENT_TYPE_NOSNIFF = True
+#SESSION_COOKIE_SECURE = True
+#SECURE_BROWSER_XSS_FILTER = True
+#CSRF_COOKIE_SECURE = True
+#SECURE_SSL_REDIRECT = True

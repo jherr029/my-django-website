@@ -194,7 +194,7 @@ def shuttle(request):
 
             tempFile = open("testFile.txt", "w")
             print(len(formset))
-            print('printting: ',formset[0].cleaned_data.get('name'))
+            print('print: ',formset[0].cleaned_data.get('name'))
 
             if len(formset) == 1 and formset[0].cleaned_data.get('name') is None:
                 context = {
@@ -214,7 +214,7 @@ def shuttle(request):
             print(addrList)
 
             tempFile.close()
-            subprocess.call(["../../Shuttle/bin/shuttle", "read" ,"&"])
+            subprocess.call(["../../Shuttle/bin/shuttle", "read"])
             resultsFile = open("results.txt", "r")
 
             fileLines = resultsFile.readlines()
